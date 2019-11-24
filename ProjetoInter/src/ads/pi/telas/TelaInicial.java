@@ -7,12 +7,6 @@ package ads.pi.telas;
 
 import ads.pi.usuario.Usuario;
 import ads.pi.usuario.UsuarioDAO;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.transaction.HeuristicMixedException;
-import javax.transaction.HeuristicRollbackException;
-import javax.transaction.RollbackException;
-import javax.transaction.SystemException;
 
 /**
  *
