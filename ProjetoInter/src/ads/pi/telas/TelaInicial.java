@@ -5,17 +5,18 @@
  */
 package ads.pi.telas;
 
-import ads.pi.usuario.Usuario;
 import ads.pi.usuario.UsuarioDAO;
-
+import ads.pi.usuario.DadosPessoais;
 /**
  *
  * @author Marlon Santana dos S
  */
 public class TelaInicial extends javax.swing.JFrame {
 
-    Usuario usuario = new Usuario();
+
     UsuarioDAO dao = new UsuarioDAO();
+    DadosPessoais dadosPessoais = new DadosPessoais();
+    
     /**
      * Creates new form TelaInicial
      */
@@ -137,12 +138,12 @@ public class TelaInicial extends javax.swing.JFrame {
     }//GEN-LAST:event_jToggleButton1ActionPerformed
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
-        usuario.setNome(tfNome.getText());
-        usuario.setIdade(Integer.parseInt(tfIdade.getText()));
-        usuario.setPeso(Double.parseDouble(tfPeso.getText()));
-        usuario.setAltura(Double.parseDouble(tfAltura.getText()));
+        dadosPessoais.setNome(tfNome.getText());
+        dadosPessoais.setIdade(Integer.parseInt(tfIdade.getText()));
+      dadosPessoais.setPeso(Double.parseDouble(tfPeso.getText()));
+        dadosPessoais.setAltura(Double.parseDouble(tfAltura.getText()));
         
-        dao.salvar(usuario);
+        dao.salvarDP(dadosPessoais);
         
     }//GEN-LAST:event_btnSalvarActionPerformed
 

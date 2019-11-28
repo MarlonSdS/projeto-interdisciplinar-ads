@@ -19,8 +19,20 @@ public class UsuarioDAO {
     private Transaction transacao;
     
     Usuario usuario = new Usuario();
+    DadosPessoais dadosPessoais = new DadosPessoais();
     
-    public void salvar(Usuario usuario){
+    
+   
+    public void salvarDP (DadosPessoais dadosPessoais){
+        sessao = HibernateUtil.getSessionFactory().openSession();
+        transacao = sessao.beginTransaction();
+        
+        sessao.save(null, dadosPessoais);
+        
+        transacao.commit();
+        sessao.close();
+    }
+    public void salvarUsuario (Usuario usuario){
         sessao = HibernateUtil.getSessionFactory().openSession();
         transacao = sessao.beginTransaction();
         

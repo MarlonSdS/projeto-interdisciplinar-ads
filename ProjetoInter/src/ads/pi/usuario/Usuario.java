@@ -2,6 +2,7 @@
 package ads.pi.usuario;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
@@ -9,6 +10,7 @@ import javax.persistence.Id;
  *
  * @author Marlon Santana dos S
  */
+@Entity
 public class Usuario {
     
     @Id
@@ -18,14 +20,14 @@ public class Usuario {
     @Column(length = 100)
     private String nome;
     
-    @Column(length = 60)
-    private int idade;
+    @Column(length = 100)
+    private String email;
     
-    private double peso;
+    private String dataNascimento;
     
-    private double altura;
+    private String usuario;
     
-    private boolean sexo;
+    private String senha;
 
     public int getId() {
         return id;
@@ -43,41 +45,40 @@ public class Usuario {
         this.nome = nome;
     }
 
-    public int getIdade() {
-        return idade;
+    public String getEmail() {
+        return email;
     }
 
-    public void setIdade(int idade) {
-        this.idade = idade;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public double getPeso() {
-        return peso;
+    public String getDataNascimento() {
+        return dataNascimento;
     }
 
-    public void setPeso(double peso) {
-        this.peso = peso;
+    public void setDataNascimento(String dataNascimento) {
+        this.dataNascimento = dataNascimento;
     }
 
-    public double getAltura() {
-        return altura;
+    public String getUsuario() {
+        return usuario;
     }
 
-    public void setAltura(double altura) {
-        this.altura = altura;
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
     }
 
-    public boolean isSexo() {
-        return sexo;
+    public String getSenha() {
+        return senha;
     }
 
-    public void setSexo(boolean sexo) {
-        this.sexo = sexo;
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
     
-    private double imc = peso/(altura * altura);
+
+   
     
-    public double getImc() {
-        return imc;
-    }
+  
 }
