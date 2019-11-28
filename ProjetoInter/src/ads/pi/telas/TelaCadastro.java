@@ -5,12 +5,18 @@
  */
 package ads.pi.telas;
 
+import ads.pi.usuario.Usuario;
+import ads.pi.usuario.UsuarioDAO;
+
 /**
  *
  * @author Jaelson Henrique
  */
 public class TelaCadastro extends javax.swing.JFrame {
 
+    
+    UsuarioDAO dao = new UsuarioDAO();
+    Usuario usuario = new Usuario();
     /**
      * Creates new form TelaCadastro
      */
@@ -50,6 +56,11 @@ public class TelaCadastro extends javax.swing.JFrame {
         jLabel1.setText("CADASTRE - SE");
 
         jTextField1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
 
         jTextField2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jTextField2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -95,6 +106,11 @@ public class TelaCadastro extends javax.swing.JFrame {
         });
 
         jButton2.setText("CADASTRAR");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("FECHAR");
 
@@ -206,6 +222,15 @@ public class TelaCadastro extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    
     /**
      * @param args the command line arguments
      */
