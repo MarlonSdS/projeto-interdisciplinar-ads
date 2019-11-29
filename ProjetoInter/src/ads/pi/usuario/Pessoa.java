@@ -11,14 +11,12 @@ import javax.persistence.Id;
  * @author Marlon Santana dos S
  */
 @Entity
-public class DadosPessoais {
+public class Pessoa {
     
     @Id
     @GeneratedValue
     private int id;
     
-    @Column(length = 100)
-    private String nome;
     
     @Column(length = 60)
     private int idade;
@@ -35,14 +33,6 @@ public class DadosPessoais {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
     }
 
     public int getIdade() {

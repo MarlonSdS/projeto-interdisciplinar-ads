@@ -19,15 +19,15 @@ public class UsuarioDAO {
     private Transaction transacao;
     
     Usuario usuario = new Usuario();
-    DadosPessoais dadosPessoais = new DadosPessoais();
+    Pessoa pessoa = new Pessoa();
     
     
    
-    public void salvarDP (DadosPessoais dadosPessoais){
+    public void salvarDP (Pessoa pessoa){
         sessao = HibernateUtil.getSessionFactory().openSession();
         transacao = sessao.beginTransaction();
         
-        sessao.save(null, dadosPessoais);
+        sessao.save(pessoa);
         
         transacao.commit();
         sessao.close();
@@ -36,7 +36,7 @@ public class UsuarioDAO {
         sessao = HibernateUtil.getSessionFactory().openSession();
         transacao = sessao.beginTransaction();
         
-        sessao.save(null, usuario);
+        sessao.save(usuario);
         
         transacao.commit();
         sessao.close();

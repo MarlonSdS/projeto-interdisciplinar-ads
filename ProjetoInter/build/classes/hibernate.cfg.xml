@@ -15,7 +15,7 @@
         <property name="use_sql_coments">true</property>
         <property name="hibernate.hbm2ddl.auto">update</property>
         <mapping class="ads.pi.usuario.Usuario"/>
-        <mapping class="ads.pi.usuario.DadosPessoais"/>
+        <mapping class="ads.pi.usuario.Pessoa"/>
       
        
     </session-factory>
