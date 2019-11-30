@@ -36,6 +36,8 @@ public class TelaPessoa extends javax.swing.JFrame {
         buttonGroup1 = new javax.swing.ButtonGroup();
         jToggleButton1 = new javax.swing.JToggleButton();
         jLabel5 = new javax.swing.JLabel();
+        buttonGroup2 = new javax.swing.ButtonGroup();
+        buttonGroup3 = new javax.swing.ButtonGroup();
         jLabel2 = new javax.swing.JLabel();
         tfIdade = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
@@ -44,7 +46,8 @@ public class TelaPessoa extends javax.swing.JFrame {
         tfAltura = new javax.swing.JTextField();
         btnSalvar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        btnSexo = new javax.swing.JToggleButton();
+        tsMasculino = new javax.swing.JRadioButton();
+        tsFeminino = new javax.swing.JRadioButton();
 
         jToggleButton1.setText("jToggleButton1");
         jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -84,12 +87,14 @@ public class TelaPessoa extends javax.swing.JFrame {
 
         jLabel1.setText("Sexo");
 
-        btnSexo.setText("Masculino");
-        btnSexo.addActionListener(new java.awt.event.ActionListener() {
+        tsMasculino.setText("Masculino");
+        tsMasculino.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSexoActionPerformed(evt);
+                tsMasculinoActionPerformed(evt);
             }
         });
+
+        tsFeminino.setText("Feminino");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -103,26 +108,26 @@ public class TelaPessoa extends javax.swing.JFrame {
                         .addGap(291, 291, 291))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(jLabel3)
-                                        .addComponent(jLabel2))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(5, 5, 5)
-                                        .addComponent(jLabel4)))
-                                .addGap(64, 64, 64))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jLabel3)
+                                .addComponent(jLabel2))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(5, 5, 5)
-                                .addComponent(jLabel1)
-                                .addGap(69, 69, 69)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(tfIdade)
-                                .addComponent(tfPeso)
-                                .addComponent(tfAltura, javax.swing.GroupLayout.DEFAULT_SIZE, 369, Short.MAX_VALUE))
-                            .addComponent(btnSexo))
-                        .addGap(86, 86, 86))))
+                                .addComponent(jLabel4)))
+                        .addGap(64, 64, 64)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(tfIdade)
+                            .addComponent(tfPeso)
+                            .addComponent(tfAltura, javax.swing.GroupLayout.DEFAULT_SIZE, 369, Short.MAX_VALUE))
+                        .addGap(86, 86, 86))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(5, 5, 5)
+                        .addComponent(jLabel1)
+                        .addGap(18, 18, 18)
+                        .addComponent(tsMasculino)
+                        .addGap(18, 18, 18)
+                        .addComponent(tsFeminino)
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -140,10 +145,12 @@ public class TelaPessoa extends javax.swing.JFrame {
                     .addComponent(tfAltura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
-                    .addComponent(btnSexo))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(tsMasculino)
+                        .addComponent(tsFeminino)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
                 .addComponent(btnSalvar)
                 .addGap(44, 44, 44))
         );
@@ -179,13 +186,9 @@ public class TelaPessoa extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_tfAlturaActionPerformed
 
-    private void btnSexoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSexoActionPerformed
-        if(btnSexo.getText() == "Masculino"){
-            btnSexo.setText("Feminino");
-        }else{
-            btnSexo.setText("Masculino");
-        }
-    }//GEN-LAST:event_btnSexoActionPerformed
+    private void tsMasculinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tsMasculinoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tsMasculinoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -224,8 +227,9 @@ public class TelaPessoa extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSalvar;
-    private javax.swing.JToggleButton btnSexo;
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.ButtonGroup buttonGroup2;
+    private javax.swing.ButtonGroup buttonGroup3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -235,5 +239,7 @@ public class TelaPessoa extends javax.swing.JFrame {
     private javax.swing.JTextField tfAltura;
     private javax.swing.JTextField tfIdade;
     private javax.swing.JTextField tfPeso;
+    private javax.swing.JRadioButton tsFeminino;
+    private javax.swing.JRadioButton tsMasculino;
     // End of variables declaration//GEN-END:variables
 }

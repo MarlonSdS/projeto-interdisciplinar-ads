@@ -7,6 +7,7 @@ package ads.pi.telas;
 
 import ads.pi.usuario.Usuario;
 import ads.pi.usuario.UsuarioDAO;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -14,9 +15,9 @@ import ads.pi.usuario.UsuarioDAO;
  */
 public class TelaCadastro extends javax.swing.JFrame {
 
-    
     UsuarioDAO dao = new UsuarioDAO();
     Usuario usuario = new Usuario();
+
     /**
      * Creates new form TelaCadastro
      */
@@ -49,6 +50,7 @@ public class TelaCadastro extends javax.swing.JFrame {
         btnVoltar = new javax.swing.JButton();
         btnCadastrar = new javax.swing.JButton();
         btnFechar = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -64,7 +66,6 @@ public class TelaCadastro extends javax.swing.JFrame {
 
         tfData.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         tfData.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        tfData.setText("DD/MM/ANO");
         tfData.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tfDataMouseClicked(evt);
@@ -124,6 +125,8 @@ public class TelaCadastro extends javax.swing.JFrame {
             }
         });
 
+        jLabel9.setText("ex:00/00/0000");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -153,21 +156,25 @@ public class TelaCadastro extends javax.swing.JFrame {
                                         .addComponent(tfUsuario)
                                         .addComponent(tfSenha, javax.swing.GroupLayout.DEFAULT_SIZE, 318, Short.MAX_VALUE))
                                     .addGap(50, 50, 50))))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addGap(29, 29, 29)
-                                .addComponent(btnVoltar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnFechar))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addGap(21, 21, 21)
-                                .addComponent(jLabel4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(tfData, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(tfEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(29, 29, 29)
+                            .addComponent(btnVoltar)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(btnFechar))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(21, 21, 21)
+                            .addComponent(jLabel4)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(tfData, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jLabel3)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(tfEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(41, 41, 41)
+                                    .addComponent(jLabel9))))))
                 .addContainerGap(37, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -193,7 +200,9 @@ public class TelaCadastro extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tfNome, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
-                .addGap(18, 18, 18)
+                .addGap(3, 3, 3)
+                .addComponent(jLabel9)
+                .addGap(1, 1, 1)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(tfData, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -231,7 +240,8 @@ public class TelaCadastro extends javax.swing.JFrame {
     }//GEN-LAST:event_tfEmailActionPerformed
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
-        // TODO add your handling code here:
+        dispose();
+        JOptionPane.showMessageDialog(null, "Efetue o Login!");
     }//GEN-LAST:event_btnVoltarActionPerformed
 
     private void tfNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfNomeActionPerformed
@@ -239,13 +249,24 @@ public class TelaCadastro extends javax.swing.JFrame {
     }//GEN-LAST:event_tfNomeActionPerformed
 
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
-        usuario.setNome(tfNome.getText());
-        usuario.setDataNascimento(tfData.getText());
-        usuario.setEmail(tfEmail.getText());
-        usuario.setUsuario(tfUsuario.getText());
-        usuario.setSenha(tfSenha.getText());
-        
-        dao.salvarUsuario(usuario);
+
+        if (tfNome.getText().isEmpty()
+                || tfData.getText().isEmpty()
+                || tfEmail.getText().isEmpty()
+                || tfSenha.getText().isEmpty()
+                || tfUsuario.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Preencha todos os campos!");
+        } else {
+            usuario.setNome(tfNome.getText());
+            usuario.setDataNascimento(tfData.getText());
+            usuario.setEmail(tfEmail.getText());
+            usuario.setUsuario(tfUsuario.getText());
+            usuario.setSenha(tfSenha.getText());
+            dao.salvarUsuario(usuario);
+            System.out.println("fim");
+            JOptionPane.showMessageDialog(null, "Cadastrado Com Sucesso!");
+        }
+
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
     private void tfDataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tfDataMouseClicked
@@ -256,7 +277,6 @@ public class TelaCadastro extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_btnFecharActionPerformed
 
-    
     /**
      * @param args the command line arguments
      */
@@ -304,6 +324,7 @@ public class TelaCadastro extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JTextField tfData;
     private javax.swing.JTextField tfEmail;
     private javax.swing.JTextField tfNome;
