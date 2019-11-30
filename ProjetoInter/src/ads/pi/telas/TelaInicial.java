@@ -83,8 +83,15 @@ public class TelaInicial extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
+        TelaPrincipal telap = new TelaPrincipal();
         TelaLogin telal = new TelaLogin();
-        telal.setVisible(true);
+        if(telal.lembre == false){
+            telal.setVisible(true);
+        }else{
+            telap.setVisible(true);
+            dispose();
+        }
+        
     }//GEN-LAST:event_btnEntrarActionPerformed
 
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed

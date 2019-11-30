@@ -177,9 +177,9 @@ public class TelaLogin extends javax.swing.JFrame {
     private void jToggleButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jToggleButton2ActionPerformed
-
+    public boolean lembre = false;
     private void cbLembreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbLembreActionPerformed
-        
+        lembre = true;
     }//GEN-LAST:event_cbLembreActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

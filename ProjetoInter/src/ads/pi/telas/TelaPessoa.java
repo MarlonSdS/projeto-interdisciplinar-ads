@@ -7,6 +7,8 @@ package ads.pi.telas;
 
 import ads.pi.usuario.UsuarioDAO;
 import ads.pi.usuario.Pessoa;
+import ads.pi.usuario.Usuario;
+import javax.swing.JOptionPane;
 /**
  *
  * @author Marlon Santana dos S
@@ -16,6 +18,7 @@ public class TelaPessoa extends javax.swing.JFrame {
 
     UsuarioDAO dao = new UsuarioDAO();
     Pessoa pessoa = new Pessoa();
+    Usuario usuario = new Usuario();
     
     /**
      * Creates new form TelaInicial
@@ -168,13 +171,13 @@ public class TelaPessoa extends javax.swing.JFrame {
       pessoa.setPeso(Double.parseDouble(tfPeso.getText()));
         pessoa.setAltura(Double.parseDouble(tfAltura.getText()));
         
-        if(btnSexo.getText() == "Masculino"){
+        if(tsMasculino.isEnabled()){
             pessoa.setSexo(true);
         }else{
             pessoa.setSexo(false);
         }
         
-        dao.salvarDP(pessoa);
+       
         
     }//GEN-LAST:event_btnSalvarActionPerformed
 

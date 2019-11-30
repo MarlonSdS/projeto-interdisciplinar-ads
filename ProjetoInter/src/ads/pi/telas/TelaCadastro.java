@@ -264,8 +264,11 @@ public class TelaCadastro extends javax.swing.JFrame {
             usuario.setSenha(tfSenha.getText());
             dao.salvarUsuario(usuario);
             System.out.println("fim");
-            JOptionPane.showMessageDialog(null, "Cadastrado Com Sucesso!");
+            JOptionPane.showMessageDialog(null, "Cadastrado Com Sucesso! Agora preencha algumas informções suas");
         }
+        TelaPessoa tela = new TelaPessoa();
+        tela.setVisible(true);
+        dispose();
 
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
