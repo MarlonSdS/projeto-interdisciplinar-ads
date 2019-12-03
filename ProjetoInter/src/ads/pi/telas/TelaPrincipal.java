@@ -7,7 +7,7 @@ package ads.pi.telas;
 
 /**
  *
- * @author Marlon
+ * @author Jaelson Henrique
  */
 public class TelaPrincipal extends javax.swing.JFrame {
 
