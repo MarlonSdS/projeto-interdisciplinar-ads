@@ -25,15 +25,6 @@ public class UsuarioDAO {
     
     
    
-    public void salvarPessoa (Pessoa pessoa){
-        sessao = HibernateUtil.getSessionFactory().openSession();
-        transacao = sessao.beginTransaction();
-        
-        sessao.save(pessoa);
-        
-        transacao.commit();
-        sessao.close();
-    }
     public void salvarUsuario (Usuario usuario){
         sessao = HibernateUtil.getSessionFactory().openSession();
         transacao = sessao.beginTransaction();

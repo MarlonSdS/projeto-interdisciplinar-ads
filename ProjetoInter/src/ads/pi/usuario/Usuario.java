@@ -31,6 +31,16 @@ public class Usuario {
     private String usuario;
     
     private String senha;
+    
+     @Column(length = 60)
+    private int idade;
+    
+    private double peso;
+    
+    private double altura;
+    
+    private boolean sexo;
+
 
     public int getId() {
         return id;
@@ -78,6 +88,38 @@ public class Usuario {
 
     public void setSenha(String senha) {
         this.senha = senha;
+    }
+
+    public int getIdade() {
+        return idade;
+    }
+
+    public void setIdade(int idade) {
+        this.idade = idade;
+    }
+
+    public double getPeso() {
+        return peso;
+    }
+
+    public void setPeso(double peso) {
+        this.peso = peso;
+    }
+
+    public double getAltura() {
+        return altura;
+    }
+
+    public void setAltura(double altura) {
+        this.altura = altura;
+    }
+
+    public boolean isSexo() {
+        return sexo;
+    }
+
+    public void setSexo(boolean sexo) {
+        this.sexo = sexo;
     }
     
 

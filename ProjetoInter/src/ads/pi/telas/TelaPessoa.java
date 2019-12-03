@@ -6,7 +6,6 @@
 package ads.pi.telas;
 
 import ads.pi.usuario.UsuarioDAO;
-import ads.pi.usuario.Pessoa;
 import ads.pi.usuario.Usuario;
 import javax.swing.JOptionPane;
 /**
@@ -17,8 +16,8 @@ public class TelaPessoa extends javax.swing.JFrame {
 
 
     UsuarioDAO dao = new UsuarioDAO();
-    Pessoa pessoa = new Pessoa();
     Usuario usuario = new Usuario();
+    TelaCadastro telac = new TelaCadastro();
     
     /**
      * Creates new form TelaInicial
@@ -229,17 +228,21 @@ public class TelaPessoa extends javax.swing.JFrame {
     }//GEN-LAST:event_jToggleButton1ActionPerformed
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
-
-        pessoa.setIdade(Integer.parseInt(tfIdade.getText()));
-      pessoa.setPeso(Double.parseDouble(tfPeso.getText()));
-        pessoa.setAltura(Double.parseDouble(tfAltura.getText()));
+        usuario.setNome(telac.nome);
+        usuario.setDataNascimento(telac.data);
+        usuario.setEmail(telac.email);
+        usuario.setUsuario(telac.user);
+        usuario.setSenha(telac.senha);
+        usuario.setIdade(Integer.parseInt(tfIdade.getText()));
+      usuario.setPeso(Double.parseDouble(tfPeso.getText()));
+        usuario.setAltura(Double.parseDouble(tfAltura.getText()));
         
         if(tsMasculino.isEnabled()){
-            pessoa.setSexo(true);
+            usuario.setSexo(true);
         }else{
-            pessoa.setSexo(false);
+            usuario.setSexo(false);
         }
-        
+        dao.salvarUsuario(usuario);
        
         
     }//GEN-LAST:event_btnSalvarActionPerformed

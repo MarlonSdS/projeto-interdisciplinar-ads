@@ -18,9 +18,16 @@ public class TelaCadastro extends javax.swing.JFrame {
     UsuarioDAO dao = new UsuarioDAO();
     Usuario usuario = new Usuario();
 
-    /**
-     * Creates new form TelaCadastro
-     */
+    public String nome;
+    
+    public String data;
+    
+    public String email;
+    
+    public String user;
+    
+    public String senha;
+    
     public TelaCadastro() {
         initComponents();
     }
@@ -35,7 +42,7 @@ public class TelaCadastro extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        btnCadastrar = new javax.swing.JButton();
+        btnAvancar = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         btnFechar = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
@@ -58,13 +65,13 @@ public class TelaCadastro extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(153, 0, 0));
 
-        btnCadastrar.setBackground(new java.awt.Color(255, 102, 51));
-        btnCadastrar.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        btnCadastrar.setForeground(new java.awt.Color(255, 255, 255));
-        btnCadastrar.setText("CADASTRAR");
-        btnCadastrar.addActionListener(new java.awt.event.ActionListener() {
+        btnAvancar.setBackground(new java.awt.Color(255, 102, 51));
+        btnAvancar.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        btnAvancar.setForeground(new java.awt.Color(255, 255, 255));
+        btnAvancar.setText("AVANÇAR");
+        btnAvancar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCadastrarActionPerformed(evt);
+                btnAvancarActionPerformed(evt);
             }
         });
 
@@ -237,7 +244,7 @@ public class TelaCadastro extends javax.swing.JFrame {
                                 .addGap(49, 49, 49)))
                         .addGap(111, 111, 111))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(btnCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnAvancar, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(177, 177, 177))))
         );
         jPanel1Layout.setVerticalGroup(
@@ -271,7 +278,7 @@ public class TelaCadastro extends javax.swing.JFrame {
                     .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(tfSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(btnCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnAvancar, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnVoltar)
@@ -316,7 +323,7 @@ public class TelaCadastro extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_tfNomeActionPerformed
 
-    private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
+    private void btnAvancarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAvancarActionPerformed
 
         if (tfNome.getText().isEmpty()
                 || tfData.getText().isEmpty()
@@ -325,20 +332,17 @@ public class TelaCadastro extends javax.swing.JFrame {
                 || tfUsuario.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Preencha todos os campos!");
         } else {
-            usuario.setNome(tfNome.getText());
-            usuario.setDataNascimento(tfData.getText());
-            usuario.setEmail(tfEmail.getText());
-            usuario.setUsuario(tfUsuario.getText());
-            usuario.setSenha(tfSenha.getText());
-            dao.salvarUsuario(usuario);
-            System.out.println("fim");
-            JOptionPane.showMessageDialog(null, "Cadastrado Com Sucesso! Agora preencha algumas informções suas");
+            nome = tfNome.getText();
+            data = tfData.getText();
+            email = tfEmail.getText();
+            user = tfUsuario.getText();
+            senha = tfSenha.getText();
         }
         TelaPessoa tela = new TelaPessoa();
         tela.setVisible(true);
-        dispose();
+        
 
-    }//GEN-LAST:event_btnCadastrarActionPerformed
+    }//GEN-LAST:event_btnAvancarActionPerformed
 
     private void tfDataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tfDataMouseClicked
         tfData.setText("");
@@ -392,7 +396,7 @@ public class TelaCadastro extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCadastrar;
+    private javax.swing.JButton btnAvancar;
     private javax.swing.JButton btnFechar;
     private javax.swing.JButton btnVoltar;
     private javax.swing.JLabel jLabel1;
