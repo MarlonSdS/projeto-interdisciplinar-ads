@@ -41,19 +41,19 @@ public class TelaPessoa extends javax.swing.JFrame {
         buttonGroup2 = new javax.swing.ButtonGroup();
         buttonGroup3 = new javax.swing.ButtonGroup();
         jLabel6 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
+        buttonGroup4 = new javax.swing.ButtonGroup();
+        buttonGroup5 = new javax.swing.ButtonGroup();
+        buttonGroup6 = new javax.swing.ButtonGroup();
+        buttonGroup7 = new javax.swing.ButtonGroup();
         tfIdade = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        tfPeso = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        tfAltura = new javax.swing.JTextField();
-        btnSalvar = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        tsMasculino = new javax.swing.JRadioButton();
         tsFeminino = new javax.swing.JRadioButton();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel7 = new javax.swing.JLabel();
+        tfPeso = new javax.swing.JTextField();
+        btnSalvar = new javax.swing.JButton();
+        tfAltura = new javax.swing.JTextField();
+        tsMasculino = new javax.swing.JRadioButton();
+        tfNome = new javax.swing.JTextField();
+        tfEmail = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
 
         jToggleButton1.setText("jToggleButton1");
         jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -69,46 +69,43 @@ public class TelaPessoa extends javax.swing.JFrame {
         jLabel6.setText("TELA DE LOGIN");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(null);
 
-        jPanel1.setBackground(new java.awt.Color(153, 0, 0));
-
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("IDADE:");
-
-        tfIdade.setBackground(new java.awt.Color(255, 102, 51));
-        tfIdade.setForeground(new java.awt.Color(255, 255, 255));
+        tfIdade.setForeground(new java.awt.Color(255, 130, 5));
+        tfIdade.setDisabledTextColor(new java.awt.Color(255, 255, 255));
+        tfIdade.setSelectionColor(new java.awt.Color(255, 255, 255));
         tfIdade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfIdadeActionPerformed(evt);
             }
         });
+        getContentPane().add(tfIdade);
+        tfIdade.setBounds(460, 220, 70, 30);
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("PESO");
+        tsFeminino.setBackground(new java.awt.Color(255, 255, 255));
+        tsFeminino.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        tsFeminino.setForeground(new java.awt.Color(255, 130, 5));
+        tsFeminino.setText("Feminino");
+        tsFeminino.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tsFemininoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(tsFeminino);
+        tsFeminino.setBounds(570, 310, 70, 20);
 
-        tfPeso.setBackground(new java.awt.Color(255, 102, 51));
-        tfPeso.setForeground(new java.awt.Color(255, 255, 255));
+        tfPeso.setForeground(new java.awt.Color(255, 130, 5));
+        tfPeso.setDisabledTextColor(new java.awt.Color(255, 255, 255));
+        tfPeso.setSelectionColor(new java.awt.Color(255, 255, 255));
         tfPeso.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfPesoActionPerformed(evt);
             }
         });
+        getContentPane().add(tfPeso);
+        tfPeso.setBounds(630, 220, 60, 30);
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("ALTURA:");
-
-        tfAltura.setBackground(new java.awt.Color(255, 102, 51));
-        tfAltura.setForeground(new java.awt.Color(255, 255, 255));
-        tfAltura.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfAlturaActionPerformed(evt);
-            }
-        });
-
-        btnSalvar.setBackground(new java.awt.Color(255, 102, 51));
+        btnSalvar.setBackground(new java.awt.Color(255, 130, 5));
         btnSalvar.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         btnSalvar.setForeground(new java.awt.Color(255, 255, 255));
         btnSalvar.setText("Salvar");
@@ -117,108 +114,45 @@ public class TelaPessoa extends javax.swing.JFrame {
                 btnSalvarActionPerformed(evt);
             }
         });
+        getContentPane().add(btnSalvar);
+        btnSalvar.setBounds(490, 356, 120, 40);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Sexo");
+        tfAltura.setForeground(new java.awt.Color(255, 130, 5));
+        tfAltura.setDisabledTextColor(new java.awt.Color(255, 255, 255));
+        tfAltura.setSelectionColor(new java.awt.Color(255, 255, 255));
+        tfAltura.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfAlturaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(tfAltura);
+        tfAltura.setBounds(520, 270, 100, 30);
 
-        tsMasculino.setBackground(new java.awt.Color(255, 102, 51));
-        tsMasculino.setForeground(new java.awt.Color(255, 255, 255));
+        tsMasculino.setBackground(new java.awt.Color(255, 255, 255));
+        tsMasculino.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        tsMasculino.setForeground(new java.awt.Color(255, 130, 5));
         tsMasculino.setText("Masculino");
         tsMasculino.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tsMasculinoActionPerformed(evt);
             }
         });
+        getContentPane().add(tsMasculino);
+        tsMasculino.setBounds(500, 310, 69, 20);
 
-        tsFeminino.setBackground(new java.awt.Color(255, 102, 51));
-        tsFeminino.setForeground(new java.awt.Color(255, 255, 255));
-        tsFeminino.setText("Feminino");
+        tfNome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfNomeActionPerformed(evt);
+            }
+        });
+        getContentPane().add(tfNome);
+        tfNome.setBounds(430, 120, 270, 30);
+        getContentPane().add(tfEmail);
+        tfEmail.setBounds(430, 170, 270, 30);
 
-        jPanel2.setBackground(new java.awt.Color(255, 102, 51));
-
-        jLabel7.setFont(new java.awt.Font("Tahoma", 3, 30)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setText("PREENCHA OS CAMPOS ABAIXO:");
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 520, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel7)
-                .addGap(21, 21, 21))
-        );
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tfIdade, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(tsMasculino)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(tsFeminino))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(tfPeso, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(tfAltura, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(39, 39, 39))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(tfAltura, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4)
-                    .addComponent(tfPeso, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfIdade, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tsMasculino)
-                    .addComponent(tsFeminino)
-                    .addComponent(jLabel1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
-                .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ads/pi/artefatos/tela_cadastro_dadospessoais.png"))); // NOI18N
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(0, -10, 720, 430);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -227,43 +161,52 @@ public class TelaPessoa extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jToggleButton1ActionPerformed
 
+    private void tsMasculinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tsMasculinoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tsMasculinoActionPerformed
+
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
-        usuario.setNome(telac.nome);
-        usuario.setDataNascimento(telac.data);
-        usuario.setEmail(telac.email);
+       usuario.setNome(tfNome.getText());
+       usuario.setEmail(tfNome.getText());
         usuario.setUsuario(telac.user);
         usuario.setSenha(telac.senha);
         usuario.setIdade(Integer.parseInt(tfIdade.getText()));
-      usuario.setPeso(Double.parseDouble(tfPeso.getText()));
+        usuario.setPeso(Double.parseDouble(tfPeso.getText()));
         usuario.setAltura(Double.parseDouble(tfAltura.getText()));
         
-        if(tsMasculino.isEnabled()){
-            usuario.setSexo(true);
-        }else{
+
+        if(tsMasculino.isEnabled() & tsFeminino.isEnabled()){
             usuario.setSexo(false);
+        }else{
+            
+            JOptionPane.showMessageDialog(null, "Seleciono apenas Um sexo");
         }
         dao.salvarUsuario(usuario);
-       TelaPrincipal telap = new TelaPrincipal();
-       telap.setVisible(true);
-       dispose();
-        
-    }//GEN-LAST:event_btnSalvarActionPerformed
+        TelaPrincipal telap = new TelaPrincipal();
+        telap.setVisible(true);
+        dispose();
 
-    private void tfPesoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfPesoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfPesoActionPerformed
+    }//GEN-LAST:event_btnSalvarActionPerformed
 
     private void tfAlturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfAlturaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tfAlturaActionPerformed
 
-    private void tsMasculinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tsMasculinoActionPerformed
+    private void tfPesoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfPesoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_tsMasculinoActionPerformed
+    }//GEN-LAST:event_tfPesoActionPerformed
 
     private void tfIdadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfIdadeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tfIdadeActionPerformed
+
+    private void tsFemininoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tsFemininoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tsFemininoActionPerformed
+
+    private void tfNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfNomeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfNomeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -305,18 +248,18 @@ public class TelaPessoa extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.ButtonGroup buttonGroup3;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.ButtonGroup buttonGroup4;
+    private javax.swing.ButtonGroup buttonGroup5;
+    private javax.swing.ButtonGroup buttonGroup6;
+    private javax.swing.ButtonGroup buttonGroup7;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JTextField tfAltura;
+    private javax.swing.JTextField tfEmail;
     private javax.swing.JTextField tfIdade;
+    private javax.swing.JTextField tfNome;
     private javax.swing.JTextField tfPeso;
     private javax.swing.JRadioButton tsFeminino;
     private javax.swing.JRadioButton tsMasculino;

@@ -35,18 +35,14 @@ public class TelaLogin extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
         tfUsuario = new javax.swing.JTextField();
         tfSenha = new javax.swing.JPasswordField();
-        jLabel2 = new javax.swing.JLabel();
         cbLembre = new javax.swing.JCheckBox();
         entrar = new javax.swing.JToggleButton();
         jButton2 = new javax.swing.JButton();
         jToggleButton2 = new javax.swing.JToggleButton();
         jButton1 = new javax.swing.JButton();
-        jLabel5 = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -62,38 +58,42 @@ public class TelaLogin extends javax.swing.JFrame {
         jLabel4.setText("jLabel4");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(null);
 
-        jPanel2.setBackground(new java.awt.Color(153, 0, 0));
-
-        tfUsuario.setBackground(new java.awt.Color(255, 102, 51));
-        tfUsuario.setForeground(new java.awt.Color(255, 255, 255));
+        tfUsuario.setForeground(new java.awt.Color(255, 130, 5));
+        tfUsuario.setCaretColor(new java.awt.Color(255, 255, 255));
+        tfUsuario.setDisabledTextColor(new java.awt.Color(255, 255, 255));
         tfUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfUsuarioActionPerformed(evt);
             }
         });
+        getContentPane().add(tfUsuario);
+        tfUsuario.setBounds(500, 130, 180, 50);
 
-        tfSenha.setBackground(new java.awt.Color(255, 102, 51));
-        tfSenha.setForeground(new java.awt.Color(255, 255, 255));
+        tfSenha.setForeground(new java.awt.Color(255, 130, 5));
         tfSenha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfSenhaActionPerformed(evt);
             }
         });
+        getContentPane().add(tfSenha);
+        tfSenha.setBounds(500, 220, 180, 40);
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ads/pi/artefatos/password_field.png"))); // NOI18N
-
-        cbLembre.setBackground(new java.awt.Color(204, 0, 0));
-        cbLembre.setForeground(new java.awt.Color(255, 255, 255));
+        cbLembre.setBackground(new java.awt.Color(255, 255, 255));
+        cbLembre.setForeground(new java.awt.Color(255, 130, 5));
         cbLembre.setText("Lembre - me");
+        cbLembre.setHideActionText(true);
+        cbLembre.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         cbLembre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbLembreActionPerformed(evt);
             }
         });
+        getContentPane().add(cbLembre);
+        cbLembre.setBounds(440, 280, 110, 23);
 
-        entrar.setBackground(new java.awt.Color(255, 102, 51));
+        entrar.setBackground(new java.awt.Color(255, 130, 5));
         entrar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         entrar.setForeground(new java.awt.Color(255, 255, 255));
         entrar.setText("ENTRAR");
@@ -102,13 +102,17 @@ public class TelaLogin extends javax.swing.JFrame {
                 entrarActionPerformed(evt);
             }
         });
+        getContentPane().add(entrar);
+        entrar.setBounds(570, 280, 81, 23);
 
-        jButton2.setBackground(new java.awt.Color(255, 102, 51));
+        jButton2.setBackground(new java.awt.Color(255, 130, 5));
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("ESQUECEU SEU LOGIN OU SENHA?");
+        getContentPane().add(jButton2);
+        jButton2.setBounds(420, 90, 240, 23);
 
-        jToggleButton2.setBackground(new java.awt.Color(255, 102, 51));
+        jToggleButton2.setBackground(new java.awt.Color(255, 130, 5));
         jToggleButton2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jToggleButton2.setForeground(new java.awt.Color(255, 255, 255));
         jToggleButton2.setText("CADASTRE - SE");
@@ -117,8 +121,10 @@ public class TelaLogin extends javax.swing.JFrame {
                 jToggleButton2ActionPerformed(evt);
             }
         });
+        getContentPane().add(jToggleButton2);
+        jToggleButton2.setBounds(450, 360, 127, 23);
 
-        jButton1.setBackground(new java.awt.Color(255, 102, 51));
+        jButton1.setBackground(new java.awt.Color(255, 130, 5));
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("FECHAR");
@@ -127,100 +133,13 @@ public class TelaLogin extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton1);
+        jButton1.setBounds(590, 360, 75, 23);
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ads/pi/artefatos/username_field.png"))); // NOI18N
-
-        jPanel3.setBackground(new java.awt.Color(255, 102, 51));
-
-        jLabel3.setFont(new java.awt.Font("Tahoma", 3, 36)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("TELA DE LOGIN");
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(179, 179, 179)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(178, Short.MAX_VALUE))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel3)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(184, 184, 184)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(38, 38, 38)
-                        .addComponent(cbLembre)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(entrar))
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel5)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(tfUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(tfSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(23, 23, 23)
-                                .addComponent(jToggleButton2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton1)))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(37, 37, 37)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(tfUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(tfSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(19, 19, 19)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(entrar)
-                    .addComponent(cbLembre))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jToggleButton2)
-                    .addComponent(jButton1))
-                .addContainerGap(74, Short.MAX_VALUE))
-        );
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ads/pi/artefatos/tela_login.png"))); // NOI18N
+        jLabel1.setText("jLabel1");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(0, 0, 720, 400);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -303,13 +222,9 @@ public class TelaLogin extends javax.swing.JFrame {
     private javax.swing.JToggleButton entrar;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JToggleButton jToggleButton2;
     private javax.swing.JPasswordField tfSenha;
     private javax.swing.JTextField tfUsuario;

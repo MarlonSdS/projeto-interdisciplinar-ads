@@ -26,7 +26,7 @@ public class Usuario {
     @Column(length = 100)
     private String email;
     
-    private String dataNascimento;
+    
     
     private String usuario;
     
@@ -64,14 +64,6 @@ public class Usuario {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getDataNascimento() {
-        return dataNascimento;
-    }
-
-    public void setDataNascimento(String dataNascimento) {
-        this.dataNascimento = dataNascimento;
     }
 
     public String getUsuario() {
