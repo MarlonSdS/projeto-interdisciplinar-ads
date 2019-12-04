@@ -44,6 +44,7 @@ public class TelaCadastro extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(720, 415));
         getContentPane().setLayout(null);
 
         tfUsuario.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
@@ -101,6 +102,8 @@ public class TelaCadastro extends javax.swing.JFrame {
         btnVoltar.setBounds(460, 380, 90, 23);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ads/pi/artefatos/tela_cadastro_login.png"))); // NOI18N
+        jLabel1.setMaximumSize(new java.awt.Dimension(720, 415));
+        jLabel1.setMinimumSize(new java.awt.Dimension(720, 415));
         getContentPane().add(jLabel1);
         jLabel1.setBounds(0, 0, 720, 410);
 
