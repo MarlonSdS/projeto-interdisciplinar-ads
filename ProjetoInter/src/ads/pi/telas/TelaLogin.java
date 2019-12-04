@@ -153,7 +153,8 @@ public class TelaLogin extends javax.swing.JFrame {
         }else{
             usuario = dao.Pesquisa(tfUsuario.getText(), tfSenha.getText());
             if(usuario != null){
-                JOptionPane.showMessageDialog(null, "Meu ovo");
+                TelaPrincipal tela = new TelaPrincipal();
+                tela.setVisible(true);
                 dispose();
                 
             }else{
@@ -175,7 +176,7 @@ public class TelaLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void tfUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfUsuarioActionPerformed
-        // TODO add your handling code here:
+        // TODO add your handling code here: 
     }//GEN-LAST:event_tfUsuarioActionPerformed
 
     private void tfSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfSenhaActionPerformed

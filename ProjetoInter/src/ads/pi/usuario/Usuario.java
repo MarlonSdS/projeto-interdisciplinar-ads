@@ -40,8 +40,6 @@ public class Usuario {
     private double altura;
     
     private boolean sexo;
-    
-    private int nivel;
 
 
     public int getId() {
@@ -114,14 +112,6 @@ public class Usuario {
 
     public void setSexo(boolean sexo) {
         this.sexo = sexo;
-    }
-
-    public int getNivel() {
-        return nivel;
-    }
-
-    public void setNivel(int nivel) {
-        this.nivel = nivel;
     }
     
 

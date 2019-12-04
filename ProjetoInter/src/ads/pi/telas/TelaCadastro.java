@@ -18,11 +18,8 @@ public class TelaCadastro extends javax.swing.JFrame {
     UsuarioDAO dao = new UsuarioDAO();
     Usuario usuario = new Usuario();
 
-        
-    public String user;
-    
-    public String senha;
-    
+
+   
     public TelaCadastro() {
         initComponents();
     }
@@ -44,7 +41,7 @@ public class TelaCadastro extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(720, 415));
+        setPreferredSize(new java.awt.Dimension(720, 411));
         getContentPane().setLayout(null);
 
         tfUsuario.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
@@ -102,8 +99,6 @@ public class TelaCadastro extends javax.swing.JFrame {
         btnVoltar.setBounds(460, 380, 90, 23);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ads/pi/artefatos/tela_cadastro_login.png"))); // NOI18N
-        jLabel1.setMaximumSize(new java.awt.Dimension(720, 415));
-        jLabel1.setMinimumSize(new java.awt.Dimension(720, 415));
         getContentPane().add(jLabel1);
         jLabel1.setBounds(0, 0, 720, 410);
 
@@ -112,25 +107,26 @@ public class TelaCadastro extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
-               TelaInicial telaN = new TelaInicial();
+        TelaInicial telaN = new TelaInicial();
         telaN.setVisible(true);
         dispose();
-        
+
     }//GEN-LAST:event_btnVoltarActionPerformed
 
     private void btnAvancarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAvancarActionPerformed
 
-        if (tfSenha.getText().isEmpty()
-                || tfUsuario.getText().isEmpty()) {
+        if (tfSenha.getText().isEmpty() || tfUsuario.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Preencha todos os campos!");
         } else {
-            user = tfUsuario.getText();
-            senha = tfSenha.getText();
-             TelaPessoa tela = new TelaPessoa();
-        tela.setVisible(true);
-        TelaCadastro TelaC = new TelaCadastro();
-        TelaC.getVisible(true);
+            TelaPessoa tela = new TelaPessoa();
+            tela.setVisible(true);
+            tela.usuario.setUsuario(tfUsuario.getText());
+            tela.usuario.setSenha(tfSenha.getText());
+            
+            dispose();
         }
+
+
     }//GEN-LAST:event_btnAvancarActionPerformed
 
     private void btnFecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFecharActionPerformed
@@ -189,9 +185,6 @@ public class TelaCadastro extends javax.swing.JFrame {
     private javax.swing.JTextField tfUsuario;
     // End of variables declaration//GEN-END:variables
 
-    private void getVisible(boolean b) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
-   
+
 }

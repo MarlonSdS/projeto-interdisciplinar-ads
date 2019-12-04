@@ -8,17 +8,16 @@ package ads.pi.telas;
 import ads.pi.usuario.UsuarioDAO;
 import ads.pi.usuario.Usuario;
 import javax.swing.JOptionPane;
+
 /**
  *
  * @author Marlon Santana dos S
  */
 public class TelaPessoa extends javax.swing.JFrame {
 
-
     UsuarioDAO dao = new UsuarioDAO();
     Usuario usuario = new Usuario();
-    TelaCadastro telac = new TelaCadastro();
-    
+
     /**
      * Creates new form TelaInicial
      */
@@ -69,6 +68,7 @@ public class TelaPessoa extends javax.swing.JFrame {
         jLabel6.setText("TELA DE LOGIN");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(720, 408));
         getContentPane().setLayout(null);
 
         tfIdade.setForeground(new java.awt.Color(255, 130, 5));
@@ -166,20 +166,18 @@ public class TelaPessoa extends javax.swing.JFrame {
     }//GEN-LAST:event_tsMasculinoActionPerformed
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
-       usuario.setNome(tfNome.getText());
-       usuario.setEmail(tfNome.getText());
-        usuario.setUsuario(telac.user);
-        usuario.setSenha(telac.senha);
+        usuario.setNome(tfNome.getText());
+        usuario.setEmail(tfNome.getText());
         usuario.setIdade(Integer.parseInt(tfIdade.getText()));
         usuario.setPeso(Double.parseDouble(tfPeso.getText()));
         usuario.setAltura(Double.parseDouble(tfAltura.getText()));
-        
 
-        if(tsMasculino.isEnabled() & tsFeminino.isEnabled()){
+        if (tsMasculino.isEnabled() & tsFeminino.isEnabled()) {
             usuario.setSexo(false);
-        }else{
-            
             JOptionPane.showMessageDialog(null, "Seleciono apenas Um sexo");
+        } else {
+            usuario.setSexo(true);
+
         }
         dao.salvarUsuario(usuario);
         TelaPrincipal telap = new TelaPrincipal();
