@@ -243,7 +243,9 @@ public class TelaPessoa extends javax.swing.JFrame {
             usuario.setSexo(false);
         }
         dao.salvarUsuario(usuario);
-       
+       TelaPrincipal telap = new TelaPrincipal();
+       telap.setVisible(true);
+       dispose();
         
     }//GEN-LAST:event_btnSalvarActionPerformed
 
