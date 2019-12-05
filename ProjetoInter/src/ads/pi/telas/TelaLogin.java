@@ -58,6 +58,7 @@ public class TelaLogin extends javax.swing.JFrame {
         jLabel4.setText("jLabel4");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(720, 430));
         getContentPane().setLayout(null);
 
         tfUsuario.setForeground(new java.awt.Color(255, 130, 5));
@@ -150,9 +151,10 @@ public class TelaLogin extends javax.swing.JFrame {
         
         if(tfUsuario.getText().isEmpty() || tfSenha.getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "Preencha todos os campos!");
-        }else{
+        } else{
             usuario = dao.Pesquisa(tfUsuario.getText(), tfSenha.getText());
             if(usuario != null){
+                Usuario.usuarioLogado = usuario;
                 TelaPrincipal tela = new TelaPrincipal();
                 tela.setVisible(true);
                 dispose();
@@ -160,8 +162,13 @@ public class TelaLogin extends javax.swing.JFrame {
             }else{
                 JOptionPane.showMessageDialog(null, "Dados inválidos!");
             }
+        }
+    
+           
+            
+         
     }//GEN-LAST:event_entrarActionPerformed
-    }
+    
     
     private void jToggleButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton2ActionPerformed
         // TODO add your handling code here:

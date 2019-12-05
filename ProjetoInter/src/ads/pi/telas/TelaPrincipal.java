@@ -9,16 +9,41 @@ import ads.pi.usuario.Usuario;
 
 /**
  *
- * @author Jaelson Henrique
+ * @author LABORATORIO 01
  */
 public class TelaPrincipal extends javax.swing.JFrame {
 
-    Usuario usuario = new Usuario();
-    
-    public double imc = usuario.getPeso() / (usuario.getAltura() * usuario.getAltura());
-    
+    /**
+     * Creates new form TelaPrincipal
+     */
     public TelaPrincipal() {
         initComponents();
+        tfIMC.setText(String.valueOf(calculoIMC()));
+        preencherCampos();
+    }
+    
+    public void preencherCampos(){
+        Usuario usuario = Usuario.usuarioLogado;
+        
+        tfAltura.setText(String.valueOf(usuario.getAltura()));
+        tfPeso.setText(String.valueOf(usuario.getPeso()));
+        tfNome.setText(usuario.getNome());
+        
+        if(calculoIMC() < 16){
+            tfRec.setText("O seu indice de massa corporal está muito baixo, nosso aplicativo não pode ajudá-lo.  Recomendamos que procure ajuda médica");
+        }
+    }
+    
+    public double calculoIMC(){
+        double IMC;
+        
+        
+        Usuario usuario = Usuario.usuarioLogado;
+        
+        IMC = usuario.getPeso() / (usuario.getAltura() * usuario.getAltura());
+        
+        
+        return IMC;
         
     }
 
@@ -31,66 +56,85 @@ public class TelaPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblNome = new javax.swing.JLabel();
-        lblPeso = new javax.swing.JLabel();
-        lblAltura = new javax.swing.JLabel();
-        lblImc = new javax.swing.JLabel();
+        tfIMC = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        tfNome = new javax.swing.JLabel();
+        tfAltura = new javax.swing.JLabel();
+        tfPeso = new javax.swing.JLabel();
+        tfRec = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                formMouseEntered(evt);
+
+        tfIMC.setText("IMC");
+
+        jLabel1.setText("IMC");
+
+        tfNome.setText("Nome");
+
+        tfAltura.setText("Altura");
+
+        tfPeso.setText("Peso");
+
+        tfRec.setText("Recomendação");
+
+        jButton1.setText("Ver Dietas");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
             }
         });
-
-        lblNome.setText("Usuario");
-
-        lblPeso.setText("Peso");
-
-        lblAltura.setText("Altura");
-
-        lblImc.setText("IMC");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(lblImc, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblAltura, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblPeso, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblNome, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(379, Short.MAX_VALUE))
+                        .addGap(31, 31, 31)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(tfPeso)
+                            .addComponent(tfAltura)
+                            .addComponent(tfNome, javax.swing.GroupLayout.PREFERRED_SIZE, 467, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addGap(50, 50, 50)
+                                .addComponent(tfIMC, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tfRec, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(125, 125, 125)
+                        .addComponent(jButton1)))
+                .addContainerGap(49, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lblNome, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblPeso, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblAltura, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblImc, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(299, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(tfRec, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addComponent(tfNome, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(tfAltura)
+                        .addGap(18, 18, 18)
+                        .addComponent(tfPeso)
+                        .addGap(39, 39, 39)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(tfIMC)
+                            .addComponent(jLabel1))))
+                .addGap(68, 68, 68)
+                .addComponent(jButton1)
+                .addContainerGap(539, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void formMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseEntered
-        lblNome.setText(usuario.getNome());
-        lblPeso.setText(String.valueOf(usuario.getPeso()));
-        lblAltura.setText(String.valueOf(usuario.getAltura()));
-        
-    }//GEN-LAST:event_formMouseEntered
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -128,9 +172,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel lblAltura;
-    private javax.swing.JLabel lblImc;
-    private javax.swing.JLabel lblNome;
-    private javax.swing.JLabel lblPeso;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel tfAltura;
+    private javax.swing.JLabel tfIMC;
+    private javax.swing.JLabel tfNome;
+    private javax.swing.JLabel tfPeso;
+    private javax.swing.JLabel tfRec;
     // End of variables declaration//GEN-END:variables
 }

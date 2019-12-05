@@ -7,6 +7,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Transient;
 
 /**
  *
@@ -40,6 +41,9 @@ public class Usuario {
     private double altura;
     
     private String sexo;
+    
+    @Transient
+    public static Usuario usuarioLogado;
 
     public int getId() {
         return id;

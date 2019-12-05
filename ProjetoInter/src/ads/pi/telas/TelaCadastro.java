@@ -5,9 +5,11 @@
  */
 package ads.pi.telas;
 
+
+import javax.swing.JOptionPane;
 import ads.pi.usuario.Usuario;
 import ads.pi.usuario.UsuarioDAO;
-import javax.swing.JOptionPane;
+import ads.pi.usuario.UsuarioTableModel;
 
 /**
  *
