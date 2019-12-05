@@ -41,7 +41,7 @@ public class TelaCadastro extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(720, 411));
+        setPreferredSize(new java.awt.Dimension(720, 430));
         getContentPane().setLayout(null);
 
         tfUsuario.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
@@ -65,7 +65,7 @@ public class TelaCadastro extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnAvancar);
-        btnAvancar.setBounds(490, 320, 160, 50);
+        btnAvancar.setBounds(490, 310, 160, 40);
 
         tfSenha.setForeground(new java.awt.Color(255, 130, 5));
         tfSenha.addActionListener(new java.awt.event.ActionListener() {
@@ -85,7 +85,7 @@ public class TelaCadastro extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnFechar);
-        btnFechar.setBounds(570, 380, 100, 23);
+        btnFechar.setBounds(570, 360, 100, 23);
 
         btnVoltar.setBackground(new java.awt.Color(255, 102, 51));
         btnVoltar.setForeground(new java.awt.Color(255, 255, 255));
@@ -96,7 +96,7 @@ public class TelaCadastro extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnVoltar);
-        btnVoltar.setBounds(460, 380, 90, 23);
+        btnVoltar.setBounds(460, 360, 90, 23);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ads/pi/artefatos/tela_cadastro_login.png"))); // NOI18N
         getContentPane().add(jLabel1);

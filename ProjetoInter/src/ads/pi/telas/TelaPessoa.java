@@ -34,16 +34,9 @@ public class TelaPessoa extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        buttonGroup1 = new javax.swing.ButtonGroup();
         jToggleButton1 = new javax.swing.JToggleButton();
         jLabel5 = new javax.swing.JLabel();
-        buttonGroup2 = new javax.swing.ButtonGroup();
-        buttonGroup3 = new javax.swing.ButtonGroup();
         jLabel6 = new javax.swing.JLabel();
-        buttonGroup4 = new javax.swing.ButtonGroup();
-        buttonGroup5 = new javax.swing.ButtonGroup();
-        buttonGroup6 = new javax.swing.ButtonGroup();
-        buttonGroup7 = new javax.swing.ButtonGroup();
         tfIdade = new javax.swing.JTextField();
         tsFeminino = new javax.swing.JRadioButton();
         tfPeso = new javax.swing.JTextField();
@@ -68,7 +61,7 @@ public class TelaPessoa extends javax.swing.JFrame {
         jLabel6.setText("TELA DE LOGIN");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(720, 408));
+        setPreferredSize(new java.awt.Dimension(720, 430));
         getContentPane().setLayout(null);
 
         tfIdade.setForeground(new java.awt.Color(255, 130, 5));
@@ -162,27 +155,43 @@ public class TelaPessoa extends javax.swing.JFrame {
     }//GEN-LAST:event_jToggleButton1ActionPerformed
 
     private void tsMasculinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tsMasculinoActionPerformed
-        // TODO add your handling code here:
+        if (tsMasculino.isSelected()) {
+            tsFeminino.setSelected(false);
+            usuario.setSexo("M");
+
+        }
     }//GEN-LAST:event_tsMasculinoActionPerformed
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
-        usuario.setNome(tfNome.getText());
-        usuario.setEmail(tfNome.getText());
-        usuario.setIdade(Integer.parseInt(tfIdade.getText()));
-        usuario.setPeso(Double.parseDouble(tfPeso.getText()));
-        usuario.setAltura(Double.parseDouble(tfAltura.getText()));
+  /* COLOQUEI ESSAS COMPARAÇÕES PARA NÃO PERMITI OS SALVA SEM QUE TODOS OS CAM
+        POS ESTEJAM PREECHIDOS, ESSA ULTIMA AQUI usuario.getSexo() == null SE NO 
+        SEXO NAO RECEBE M OU F ELE NAO AVANÇA!
+        */
+        if (tfNome.getText().isEmpty()
+                || tfEmail.getText().isEmpty()      
+                || tfPeso.getText().isEmpty()
+                || tfIdade.getText().isEmpty()
+                || tfAltura.getText().isEmpty()
+                || usuario.getSexo() == null)  {
 
-        if (tsMasculino.isEnabled() & tsFeminino.isEnabled()) {
-            usuario.setSexo(false);
-            JOptionPane.showMessageDialog(null, "Seleciono apenas Um sexo");
+            JOptionPane.showMessageDialog(null, "Preenche todos os Campos");
+            
         } else {
-            usuario.setSexo(true);
+
+            usuario.setNome(tfNome.getText());
+            usuario.setEmail(tfEmail.getText());
+            usuario.setIdade(Integer.parseInt(tfIdade.getText()));
+            usuario.setPeso(Double.parseDouble(tfPeso.getText()));
+            usuario.setAltura(Double.parseDouble(tfAltura.getText()));
+            usuario.getSexo();
+
+            dao.salvarUsuario(usuario);
+            TelaPrincipal telap = new TelaPrincipal();
+            telap.setVisible(true);
+            dispose();
 
         }
-        dao.salvarUsuario(usuario);
-        TelaPrincipal telap = new TelaPrincipal();
-        telap.setVisible(true);
-        dispose();
+
 
     }//GEN-LAST:event_btnSalvarActionPerformed
 
@@ -199,7 +208,11 @@ public class TelaPessoa extends javax.swing.JFrame {
     }//GEN-LAST:event_tfIdadeActionPerformed
 
     private void tsFemininoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tsFemininoActionPerformed
-        // TODO add your handling code here:
+
+        if (tsFeminino.isSelected()) {
+            tsMasculino.setSelected(false);
+            usuario.setSexo("F");
+        }
     }//GEN-LAST:event_tsFemininoActionPerformed
 
     private void tfNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfNomeActionPerformed
@@ -243,13 +256,6 @@ public class TelaPessoa extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSalvar;
-    private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.ButtonGroup buttonGroup2;
-    private javax.swing.ButtonGroup buttonGroup3;
-    private javax.swing.ButtonGroup buttonGroup4;
-    private javax.swing.ButtonGroup buttonGroup5;
-    private javax.swing.ButtonGroup buttonGroup6;
-    private javax.swing.ButtonGroup buttonGroup7;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;

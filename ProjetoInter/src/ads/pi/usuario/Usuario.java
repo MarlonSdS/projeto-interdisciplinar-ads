@@ -20,10 +20,10 @@ public class Usuario {
     @GeneratedValue
     private int id;
     
-    @Column(length = 100)
+   
     private String nome;
     
-    @Column(length = 100)
+
     private String email;
     
     
@@ -32,15 +32,14 @@ public class Usuario {
     
     private String senha;
     
-     @Column(length = 60)
+
     private int idade;
     
     private double peso;
     
     private double altura;
     
-    private boolean sexo;
-
+    private String sexo;
 
     public int getId() {
         return id;
@@ -106,13 +105,16 @@ public class Usuario {
         this.altura = altura;
     }
 
-    public boolean isSexo() {
+    public String getSexo() {
         return sexo;
     }
 
-    public void setSexo(boolean sexo) {
+    public void setSexo(String sexo) {
         this.sexo = sexo;
     }
+
+
+   
     
 
    
