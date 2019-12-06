@@ -5,7 +5,17 @@
  */
 package ads.pi.telas;
 
+import ads.pi.dietas.Dieta1;
+import ads.pi.dietas.Dieta2;
+import ads.pi.dietas.Dieta3;
 import ads.pi.usuario.Usuario;
+import exercicios.Ex1;
+import exercicios.Ex2;
+import exercicios.Ex3;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -20,6 +30,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         initComponents();
         tfIMC.setText(String.valueOf(calculoIMC()));
         preencherCampos();
+        tfData.setText(getDateTime());
     }
     
     public void preencherCampos(){
@@ -28,11 +39,25 @@ public class TelaPrincipal extends javax.swing.JFrame {
         tfAltura.setText(String.valueOf(usuario.getAltura()));
         tfPeso.setText(String.valueOf(usuario.getPeso()));
         tfNome.setText(usuario.getNome());
-        
+       //a linguagem do html permite que formatemos o texto como quisermos 
         if(calculoIMC() < 16){
-            tfRec.setText("O seu indice de massa corporal está muito baixo, nosso aplicativo não pode ajudá-lo.  Recomendamos que procure ajuda médica");
+            tfRec1.setText("<html> O seu indice de massa corporal está muito <br />"
+                    + " baixo, nosso aplicativo não pode ajudá-lo. <br /> "
+                    + "Recomendamos que procure ajuda médica <html>");
+        }else if(calculoIMC() > 40){
+            tfRec1.setText("<htm> O seu indice de massa corporal está muito <br />"
+                    + " alto, nosso aplicativo não pode ajudá-lo. <br />"
+                    + " Recomendamos que procure ajuda médica.<html>");
+        }else{
+            tfRec1.setText("");
         }
     }
+    
+    private String getDateTime() { 
+	DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss"); 
+	Date date = new Date(); 
+	return dateFormat.format(date); 
+}
     
     public double calculoIMC(){
         double IMC;
@@ -61,8 +86,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         tfNome = new javax.swing.JLabel();
         tfAltura = new javax.swing.JLabel();
         tfPeso = new javax.swing.JLabel();
-        tfRec = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        tfRec1 = new javax.swing.JLabel();
+        btnDietas = new javax.swing.JButton();
+        btnVoltar = new javax.swing.JButton();
+        btnExer = new javax.swing.JButton();
+        tfData = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -76,14 +104,30 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         tfPeso.setText("Peso");
 
-        tfRec.setText("Recomendação");
+        tfRec1.setText("Recomendação");
 
-        jButton1.setText("Ver Dietas");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnDietas.setText("Ver Dietas");
+        btnDietas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnDietasActionPerformed(evt);
             }
         });
+
+        btnVoltar.setText("Voltar");
+        btnVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVoltarActionPerformed(evt);
+            }
+        });
+
+        btnExer.setText("Ver Exercícios");
+        btnExer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExerActionPerformed(evt);
+            }
+        });
+
+        tfData.setText("jLabel2");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -94,47 +138,107 @@ public class TelaPrincipal extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(31, 31, 31)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(tfPeso)
-                            .addComponent(tfAltura)
-                            .addComponent(tfNome, javax.swing.GroupLayout.PREFERRED_SIZE, 467, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel1)
                                 .addGap(50, 50, 50)
-                                .addComponent(tfIMC, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(tfRec, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(tfIMC, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(tfPeso)
+                            .addComponent(tfNome, javax.swing.GroupLayout.PREFERRED_SIZE, 467, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tfAltura)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(125, 125, 125)
-                        .addComponent(jButton1)))
-                .addContainerGap(49, Short.MAX_VALUE))
+                        .addGap(281, 281, 281)
+                        .addComponent(tfRec1, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(tfData, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnVoltar)
+                                .addGap(42, 42, 42)
+                                .addComponent(btnDietas)))
+                        .addGap(42, 42, 42)
+                        .addComponent(btnExer)))
+                .addContainerGap(43, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(tfRec, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addComponent(tfNome, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(tfAltura)
-                        .addGap(18, 18, 18)
-                        .addComponent(tfPeso)
-                        .addGap(39, 39, 39)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(tfIMC)
-                            .addComponent(jLabel1))))
+                .addComponent(tfNome, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(tfRec1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(tfAltura)
+                .addGap(77, 77, 77)
+                .addComponent(tfPeso)
+                .addGap(39, 39, 39)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tfIMC)
+                    .addComponent(jLabel1))
                 .addGap(68, 68, 68)
-                .addComponent(jButton1)
-                .addContainerGap(539, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnDietas)
+                    .addComponent(btnVoltar)
+                    .addComponent(btnExer))
+                .addGap(18, 18, 18)
+                .addComponent(tfData, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void btnDietasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDietasActionPerformed
+        if(calculoIMC() < 16){
+            JOptionPane.showMessageDialog(null, "<html> O seu indice de massa corporal está muito <br />"
+                    + " baixo, nosso aplicativo não pode ajudá-lo. <br /> "
+                    + "Recomendamos que procure ajuda médica <html>");
+        }else if(calculoIMC() > 40){
+            JOptionPane.showMessageDialog(null, "<htm> O seu indice de massa corporal está muito <br />"
+                    + " alto, nosso aplicativo não pode ajudá-lo. <br />"
+                    + " Recomendamos que procure ajuda médica.<html>");
+        }else{
+            if(calculoIMC() >= 16 && calculoIMC() < 24){
+            Dieta1 d = new Dieta1();
+            d.setVisible(true);
+        }else if(calculoIMC() >= 24 && calculoIMC() < 32){
+            Dieta2 d = new Dieta2();
+            d.setVisible(true);
+        }else if(calculoIMC() >= 32 && calculoIMC() < 40){
+            Dieta3 d = new Dieta3();
+            d.setVisible(true);
+        }
+        }
+    }//GEN-LAST:event_btnDietasActionPerformed
+        
+            
+    private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
+        TelaLogin telal = new TelaLogin();
+        telal.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btnVoltarActionPerformed
+
+    private void btnExerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExerActionPerformed
+         if(calculoIMC() < 16){
+            JOptionPane.showMessageDialog(null, "<html> O seu Indíce de Massa Corporal está muito <br /> baixo, nosso aplicativo não pode "
+                    + "ajudá-lo. Recomendamos que procure ajuda médica.");
+        }else if(calculoIMC() > 40){
+            JOptionPane.showMessageDialog(null, "<html> O seu Indíce de Massa Corporal está muito alto <br />, nosso aplicativo não pode "
+                    + "ajudá-lo. Recomendamos que procure ajuda médica.");
+        }else{
+            if(calculoIMC() >= 16 && calculoIMC() < 24){
+            Ex1 e = new Ex1();
+            e.setVisible(true);
+        }else if(calculoIMC() >= 24 && calculoIMC() < 32){
+            Ex2 e = new Ex2();
+            e.setVisible(true);
+        }else if(calculoIMC() >= 32 && calculoIMC() < 40){
+            Ex3 e = new Ex3();
+            e.setVisible(true);
+        }
+        }
+    }//GEN-LAST:event_btnExerActionPerformed
 
     /**
      * @param args the command line arguments
@@ -172,12 +276,15 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnDietas;
+    private javax.swing.JButton btnExer;
+    private javax.swing.JButton btnVoltar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel tfAltura;
+    private javax.swing.JLabel tfData;
     private javax.swing.JLabel tfIMC;
     private javax.swing.JLabel tfNome;
     private javax.swing.JLabel tfPeso;
-    private javax.swing.JLabel tfRec;
+    private javax.swing.JLabel tfRec1;
     // End of variables declaration//GEN-END:variables
 }

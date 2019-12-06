@@ -186,8 +186,8 @@ public class TelaPessoa extends javax.swing.JFrame {
             usuario.getSexo();
 
             dao.salvarUsuario(usuario);
-            TelaPrincipal telap = new TelaPrincipal();
-            telap.setVisible(true);
+            TelaLogin telal = new TelaLogin();
+            telal.setVisible(true);
             dispose();
 
         }
