@@ -232,7 +232,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void btnAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizarActionPerformed
             int id = usuario.getId();
-           usuario = dao.Pesquisa(id);
+           
            TelaPessoa tela = new TelaPessoa();
            tela.carregarUsuario(usuario);
            tela.setVisible(true);

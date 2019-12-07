@@ -1,12 +1,8 @@
 package ads.pi.usuario;
 
 import ads.pi.util.HibernateUtil;
-import java.io.Serializable;
+
 import java.util.List;
-import javax.transaction.HeuristicMixedException;
-import javax.transaction.HeuristicRollbackException;
-import javax.transaction.RollbackException;
-import javax.transaction.SystemException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;

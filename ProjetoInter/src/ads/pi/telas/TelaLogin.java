@@ -165,13 +165,15 @@ public class TelaLogin extends javax.swing.JFrame {
         }
     
            
-            
+           //aaaaaaaaaaaaaaaaaaaa 
          
     }//GEN-LAST:event_entrarActionPerformed
     
     
     private void jToggleButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton2ActionPerformed
-        // TODO add your handling code here:
+        TelaCadastro telac = new TelaCadastro();
+        telac.setVisible(true);
+        dispose();
     }//GEN-LAST:event_jToggleButton2ActionPerformed
     public boolean lembre = false;
     private void cbLembreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbLembreActionPerformed
