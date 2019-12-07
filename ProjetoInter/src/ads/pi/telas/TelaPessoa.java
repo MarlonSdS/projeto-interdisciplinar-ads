@@ -268,4 +268,10 @@ public class TelaPessoa extends javax.swing.JFrame {
     private javax.swing.JRadioButton tsFeminino;
     private javax.swing.JRadioButton tsMasculino;
     // End of variables declaration//GEN-END:variables
+
+    void carregarUsuario(Usuario usuario) {
+       tfAltura.setText(String.valueOf(usuario.getAltura()));
+       tfIdade.setText(String.valueOf(usuario.getIdade()));
+       tfPeso.setText(String.valueOf(usuario.getPeso()));
+    }
 }

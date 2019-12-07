@@ -68,5 +68,13 @@ public class UsuarioDAO {
                 createCriteria(Usuario.class).list();
         return usuarios;      
     }
+   
+   public void Editar(Usuario usuario){
+       sessao = HibernateUtil.getSessionFactory().openSession();
+        transacao = sessao.beginTransaction();
+        sessao.update(usuario);
+        transacao.commit();
+        sessao.close();
+   }
 }
 //(marlon, 24/11, 10:40am) transaction estava sendo importado da biblioteca errada

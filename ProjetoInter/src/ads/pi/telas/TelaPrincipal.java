@@ -9,6 +9,8 @@ import ads.pi.dietas.Dieta1;
 import ads.pi.dietas.Dieta2;
 import ads.pi.dietas.Dieta3;
 import ads.pi.usuario.Usuario;
+import ads.pi.usuario.UsuarioDAO;
+import static ads.pi.usuario.Usuario_.id;
 import exercicios.Ex1;
 import exercicios.Ex2;
 import exercicios.Ex3;
@@ -23,6 +25,8 @@ import javax.swing.JOptionPane;
  */
 public class TelaPrincipal extends javax.swing.JFrame {
 
+    Usuario usuario = new Usuario();
+    UsuarioDAO dao = new UsuarioDAO();
     /**
      * Creates new form TelaPrincipal
      */
@@ -42,9 +46,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
        //a linguagem do html permite que formatemos o texto como quisermos 
         if(calculoIMC() < 16){
             tfRec1.setText("<html> O seu indice de massa corporal está muito <br />"
-                    + " baixo, nosso aplicativo não pode ajudá-lo. <br /> "
+                    + " baixo, nosso aplicativo não pode ajudá-lo. <br /> "        
                     + "Recomendamos que procure ajuda médica <html>");
-        }else if(calculoIMC() > 40){
+        }else if(calculoIMC() > 40){                                                    ///QUE MIZERIA ÉSSA?
             tfRec1.setText("<htm> O seu indice de massa corporal está muito <br />"
                     + " alto, nosso aplicativo não pode ajudá-lo. <br />"
                     + " Recomendamos que procure ajuda médica.<html>");
@@ -82,7 +86,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         tfIMC = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
         tfNome = new javax.swing.JLabel();
         tfAltura = new javax.swing.JLabel();
         tfPeso = new javax.swing.JLabel();
@@ -91,99 +94,86 @@ public class TelaPrincipal extends javax.swing.JFrame {
         btnVoltar = new javax.swing.JButton();
         btnExer = new javax.swing.JButton();
         tfData = new javax.swing.JLabel();
+        btnAtualizar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(null);
 
+        tfIMC.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         tfIMC.setText("IMC");
+        getContentPane().add(tfIMC);
+        tfIMC.setBounds(190, 310, 44, 17);
 
-        jLabel1.setText("IMC");
-
+        tfNome.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         tfNome.setText("Nome");
+        getContentPane().add(tfNome);
+        tfNome.setBounds(180, 150, 290, 25);
 
-        tfAltura.setText("Altura");
+        tfAltura.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        getContentPane().add(tfAltura);
+        tfAltura.setBounds(180, 230, 80, 20);
 
-        tfPeso.setText("Peso");
+        tfPeso.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        getContentPane().add(tfPeso);
+        tfPeso.setBounds(390, 230, 80, 20);
 
+        tfRec1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         tfRec1.setText("Recomendação");
+        tfRec1.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        getContentPane().add(tfRec1);
+        tfRec1.setBounds(610, 190, 440, 290);
 
+        btnDietas.setBackground(new java.awt.Color(255, 102, 51));
+        btnDietas.setForeground(new java.awt.Color(255, 255, 255));
         btnDietas.setText("Ver Dietas");
         btnDietas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDietasActionPerformed(evt);
             }
         });
+        getContentPane().add(btnDietas);
+        btnDietas.setBounds(760, 550, 81, 23);
 
+        btnVoltar.setBackground(new java.awt.Color(255, 102, 51));
+        btnVoltar.setForeground(new java.awt.Color(255, 255, 255));
         btnVoltar.setText("Voltar");
         btnVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnVoltarActionPerformed(evt);
             }
         });
+        getContentPane().add(btnVoltar);
+        btnVoltar.setBounds(660, 550, 61, 23);
 
+        btnExer.setBackground(new java.awt.Color(255, 102, 51));
+        btnExer.setForeground(new java.awt.Color(255, 255, 255));
         btnExer.setText("Ver Exercícios");
         btnExer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnExerActionPerformed(evt);
             }
         });
+        getContentPane().add(btnExer);
+        btnExer.setBounds(880, 550, 99, 23);
 
-        tfData.setText("jLabel2");
+        tfData.setText("DATA");
+        getContentPane().add(tfData);
+        tfData.setBounds(30, 10, 184, 22);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addGap(50, 50, 50)
-                                .addComponent(tfIMC, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(tfPeso)
-                            .addComponent(tfNome, javax.swing.GroupLayout.PREFERRED_SIZE, 467, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tfAltura)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(281, 281, 281)
-                        .addComponent(tfRec1, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(tfData, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnVoltar)
-                                .addGap(42, 42, 42)
-                                .addComponent(btnDietas)))
-                        .addGap(42, 42, 42)
-                        .addComponent(btnExer)))
-                .addContainerGap(43, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(tfNome, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tfRec1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tfAltura)
-                .addGap(77, 77, 77)
-                .addComponent(tfPeso)
-                .addGap(39, 39, 39)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tfIMC)
-                    .addComponent(jLabel1))
-                .addGap(68, 68, 68)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnDietas)
-                    .addComponent(btnVoltar)
-                    .addComponent(btnExer))
-                .addGap(18, 18, 18)
-                .addComponent(tfData, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(25, Short.MAX_VALUE))
-        );
+        btnAtualizar.setText("Atualizar Informações");
+        btnAtualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAtualizarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnAtualizar);
+        btnAtualizar.setBounds(200, 370, 160, 30);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ads/pi/artefatos/tela_principal.png"))); // NOI18N
+        jLabel1.setText("jLabel1");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(0, 0, 1070, 610);
 
         pack();
         setLocationRelativeTo(null);
@@ -240,6 +230,16 @@ public class TelaPrincipal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnExerActionPerformed
 
+    private void btnAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizarActionPerformed
+            int id = usuario.getId();
+           usuario = dao.Pesquisa(id);
+           TelaPessoa tela = new TelaPessoa();
+           tela.carregarUsuario(usuario);
+           tela.setVisible(true);
+           dispose();
+
+    }//GEN-LAST:event_btnAtualizarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -276,6 +276,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAtualizar;
     private javax.swing.JButton btnDietas;
     private javax.swing.JButton btnExer;
     private javax.swing.JButton btnVoltar;
