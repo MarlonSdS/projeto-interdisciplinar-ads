@@ -14,9 +14,13 @@ import static ads.pi.usuario.Usuario_.id;
 import exercicios.Ex1;
 import exercicios.Ex2;
 import exercicios.Ex3;
+import java.io.File;
+import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -27,6 +31,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     Usuario usuario = new Usuario();
     UsuarioDAO dao = new UsuarioDAO();
+
     /**
      * Creates new form TelaPrincipal
      */
@@ -36,44 +41,44 @@ public class TelaPrincipal extends javax.swing.JFrame {
         preencherCampos();
         tfData.setText(getDateTime());
     }
-    
-    public void preencherCampos(){
+
+    public void preencherCampos() {
         Usuario usuario = Usuario.usuarioLogado;
-        
+
         tfAltura.setText(String.valueOf(usuario.getAltura()));
         tfPeso.setText(String.valueOf(usuario.getPeso()));
         tfNome.setText(usuario.getNome());
-       //a linguagem do html permite que formatemos o texto como quisermos 
-        if(calculoIMC() < 16){
+
+        //a linguagem do html permite que formatemos o texto como quisermos 
+        if (calculoIMC() < 16) {
             tfRec1.setText("<html> O seu indice de massa corporal está muito <br />"
-                    + " baixo, nosso aplicativo não pode ajudá-lo. <br /> "        
+                    + " baixo, nosso aplicativo não pode ajudá-lo. <br /> "
                     + "Recomendamos que procure ajuda médica <html>");
-        }else if(calculoIMC() > 40){                                                    ///QUE MIZERIA ÉSSA?
+        } else if (calculoIMC() > 40) {                                                    ///QUE MIZERIA ÉSSA?
             tfRec1.setText("<htm> O seu indice de massa corporal está muito <br />"
                     + " alto, nosso aplicativo não pode ajudá-lo. <br />"
                     + " Recomendamos que procure ajuda médica.<html>");
-        }else{
-            tfRec1.setText("");
+        } else {
+            tfRec1.setText("Nenhuma Recomendação para Você, Mas Sempre procure"
+                    + "um Médico!");
         }
     }
-    
-    private String getDateTime() { 
-	DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss"); 
-	Date date = new Date(); 
-	return dateFormat.format(date); 
-}
-    
-    public double calculoIMC(){
+
+    private String getDateTime() {
+        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+        Date date = new Date();
+        return dateFormat.format(date);
+    }
+
+    public double calculoIMC() {
         double IMC;
-        
-        
+
         Usuario usuario = Usuario.usuarioLogado;
-        
+
         IMC = usuario.getPeso() / (usuario.getAltura() * usuario.getAltura());
-        
-        
+
         return IMC;
-        
+
     }
 
     /**
@@ -87,17 +92,19 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         tfIMC = new javax.swing.JLabel();
         tfNome = new javax.swing.JLabel();
-        tfAltura = new javax.swing.JLabel();
-        tfPeso = new javax.swing.JLabel();
         tfRec1 = new javax.swing.JLabel();
         btnDietas = new javax.swing.JButton();
-        btnVoltar = new javax.swing.JButton();
+        btnSair = new javax.swing.JButton();
         btnExer = new javax.swing.JButton();
         tfData = new javax.swing.JLabel();
         btnAtualizar = new javax.swing.JButton();
+        tfPeso = new javax.swing.JTextField();
+        tfAltura = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1090, 630));
         getContentPane().setLayout(null);
 
         tfIMC.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -110,19 +117,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         getContentPane().add(tfNome);
         tfNome.setBounds(180, 150, 290, 25);
 
-        tfAltura.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        getContentPane().add(tfAltura);
-        tfAltura.setBounds(180, 230, 80, 20);
-
-        tfPeso.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        getContentPane().add(tfPeso);
-        tfPeso.setBounds(390, 230, 80, 20);
-
         tfRec1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        tfRec1.setText("Recomendação");
+        tfRec1.setText("Nenhuma Recomendação para Você!");
         tfRec1.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         getContentPane().add(tfRec1);
-        tfRec1.setBounds(610, 190, 440, 290);
+        tfRec1.setBounds(590, 180, 440, 290);
 
         btnDietas.setBackground(new java.awt.Color(255, 102, 51));
         btnDietas.setForeground(new java.awt.Color(255, 255, 255));
@@ -135,16 +134,16 @@ public class TelaPrincipal extends javax.swing.JFrame {
         getContentPane().add(btnDietas);
         btnDietas.setBounds(760, 550, 81, 23);
 
-        btnVoltar.setBackground(new java.awt.Color(255, 102, 51));
-        btnVoltar.setForeground(new java.awt.Color(255, 255, 255));
-        btnVoltar.setText("Voltar");
-        btnVoltar.addActionListener(new java.awt.event.ActionListener() {
+        btnSair.setBackground(new java.awt.Color(255, 102, 51));
+        btnSair.setForeground(new java.awt.Color(255, 255, 255));
+        btnSair.setText("Sair");
+        btnSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnVoltarActionPerformed(evt);
+                btnSairActionPerformed(evt);
             }
         });
-        getContentPane().add(btnVoltar);
-        btnVoltar.setBounds(660, 550, 61, 23);
+        getContentPane().add(btnSair);
+        btnSair.setBounds(660, 550, 51, 23);
 
         btnExer.setBackground(new java.awt.Color(255, 102, 51));
         btnExer.setForeground(new java.awt.Color(255, 255, 255));
@@ -170,6 +169,28 @@ public class TelaPrincipal extends javax.swing.JFrame {
         getContentPane().add(btnAtualizar);
         btnAtualizar.setBounds(200, 370, 160, 30);
 
+        tfPeso.setForeground(new java.awt.Color(255, 130, 0));
+        tfPeso.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfPesoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(tfPeso);
+        tfPeso.setBounds(390, 220, 90, 50);
+
+        tfAltura.setForeground(new java.awt.Color(255, 130, 0));
+        tfAltura.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfAlturaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(tfAltura);
+        tfAltura.setBounds(180, 220, 90, 50);
+
+        jLabel2.setText("Você pode Atualizar sua Altura e seu Peso conforme sua evolução !");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(80, 190, 390, 30);
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ads/pi/artefatos/tela_principal.png"))); // NOI18N
         jLabel1.setText("jLabel1");
         getContentPane().add(jLabel1);
@@ -180,65 +201,101 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnDietasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDietasActionPerformed
-        if(calculoIMC() < 16){
+        if (calculoIMC() < 16) {
             JOptionPane.showMessageDialog(null, "<html> O seu indice de massa corporal está muito <br />"
                     + " baixo, nosso aplicativo não pode ajudá-lo. <br /> "
                     + "Recomendamos que procure ajuda médica <html>");
-        }else if(calculoIMC() > 40){
+        } else if (calculoIMC() > 40) {
             JOptionPane.showMessageDialog(null, "<htm> O seu indice de massa corporal está muito <br />"
                     + " alto, nosso aplicativo não pode ajudá-lo. <br />"
                     + " Recomendamos que procure ajuda médica.<html>");
-        }else{
-            if(calculoIMC() >= 16 && calculoIMC() < 24){
-            Dieta1 d = new Dieta1();
-            d.setVisible(true);
-        }else if(calculoIMC() >= 24 && calculoIMC() < 32){
-            Dieta2 d = new Dieta2();
-            d.setVisible(true);
-        }else if(calculoIMC() >= 32 && calculoIMC() < 40){
-            Dieta3 d = new Dieta3();
-            d.setVisible(true);
-        }
+        } else {
+            if (calculoIMC() >= 16 && calculoIMC() < 24) {
+                try {
+                    Process p = Runtime.getRuntime().exec("C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe file:///C:/Program%20Files/ProjetoInter/data/dieta1.pdf");
+                } catch (IOException ex) { //
+                    Logger.getLogger(TelaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            } else if (calculoIMC() >= 24 && calculoIMC() < 32) {
+                 try {
+                    Process p = Runtime.getRuntime().exec("C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe file:///C:/Program%20Files/ProjetoInter/data/dieta2.pdf");
+                } catch (IOException ex) {
+                    Logger.getLogger(TelaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            } else if (calculoIMC() >= 32 && calculoIMC() < 40) {
+                 try {
+                    Process p = Runtime.getRuntime().exec("C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe file:///C:/Program%20Files/ProjetoInter/data/dieta3.pdf");
+                } catch (IOException ex) {
+                    Logger.getLogger(TelaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
         }
     }//GEN-LAST:event_btnDietasActionPerformed
-        
-            
-    private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
-        TelaLogin telal = new TelaLogin();
-        telal.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_btnVoltarActionPerformed
+
 
     private void btnExerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExerActionPerformed
-         if(calculoIMC() < 16){
+        if (calculoIMC() < 16) {
             JOptionPane.showMessageDialog(null, "<html> O seu Indíce de Massa Corporal está muito <br /> baixo, nosso aplicativo não pode "
                     + "ajudá-lo. Recomendamos que procure ajuda médica.");
-        }else if(calculoIMC() > 40){
+        } else if (calculoIMC() > 40) {
             JOptionPane.showMessageDialog(null, "<html> O seu Indíce de Massa Corporal está muito alto <br />, nosso aplicativo não pode "
                     + "ajudá-lo. Recomendamos que procure ajuda médica.");
-        }else{
-            if(calculoIMC() >= 16 && calculoIMC() < 24){
-            Ex1 e = new Ex1();
-            e.setVisible(true);
-        }else if(calculoIMC() >= 24 && calculoIMC() < 32){
-            Ex2 e = new Ex2();
-            e.setVisible(true);
-        }else if(calculoIMC() >= 32 && calculoIMC() < 40){
-            Ex3 e = new Ex3();
-            e.setVisible(true);
-        }
+        } else {
+            if (calculoIMC() >= 16 && calculoIMC() < 24) {
+                 try {
+                    Process p = Runtime.getRuntime().exec("C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe file:///C:/Program%20Files/ProjetoInter/data/treino1.pdf");
+                } catch (IOException ex) {
+                    Logger.getLogger(TelaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            } else if (calculoIMC() >= 24 && calculoIMC() < 32) {
+                JOptionPane.showMessageDialog(null, "Para o seu tipo fisico não temos um treino especifico, somente dieta");
+            } else if (calculoIMC() >= 32 && calculoIMC() < 40) {
+                 try {
+                    Process p = Runtime.getRuntime().exec("C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe file:///C:/Program%20Files/ProjetoInter/data/treino3.pdf");
+                } catch (IOException ex) {
+                    Logger.getLogger(TelaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
         }
     }//GEN-LAST:event_btnExerActionPerformed
 
     private void btnAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizarActionPerformed
-            int id = usuario.getId();
-           
-           TelaPessoa tela = new TelaPessoa();
-           tela.carregarUsuario(usuario);
-           tela.setVisible(true);
-           dispose();
+        Usuario usl = Usuario.usuarioLogado;
+         if (tfAltura.getText().isEmpty()
+                 || tfPeso.getText().isEmpty())
+                 {
 
+            JOptionPane.showMessageDialog(null, "Preencha todos os Campos");
+            
+        } else {
+
+           
+            usl.setPeso(Double.parseDouble(tfPeso.getText()));
+            usl.setAltura(Double.parseDouble(tfAltura.getText()));
+           
+
+            dao.salvarUsuario(usl);
+             JOptionPane.showMessageDialog(null, "É necessario que Faça o Login novamente!");
+            TelaLogin telal = new TelaLogin();
+            telal.setVisible(true);
+            dispose();
+
+        }
     }//GEN-LAST:event_btnAtualizarActionPerformed
+
+    private void tfPesoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfPesoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfPesoActionPerformed
+
+    private void tfAlturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfAlturaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfAlturaActionPerformed
+
+    private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
+        TelaLogin telal = new TelaLogin();
+        telal.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btnSairActionPerformed
 
     /**
      * @param args the command line arguments
@@ -279,13 +336,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btnAtualizar;
     private javax.swing.JButton btnDietas;
     private javax.swing.JButton btnExer;
-    private javax.swing.JButton btnVoltar;
+    private javax.swing.JButton btnSair;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel tfAltura;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JTextField tfAltura;
     private javax.swing.JLabel tfData;
     private javax.swing.JLabel tfIMC;
     private javax.swing.JLabel tfNome;
-    private javax.swing.JLabel tfPeso;
+    private javax.swing.JTextField tfPeso;
     private javax.swing.JLabel tfRec1;
     // End of variables declaration//GEN-END:variables
 }

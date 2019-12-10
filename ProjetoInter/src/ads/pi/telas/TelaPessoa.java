@@ -61,7 +61,8 @@ public class TelaPessoa extends javax.swing.JFrame {
         jLabel6.setText("TELA DE LOGIN");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(720, 430));
+        setMaximumSize(new java.awt.Dimension(65123135, 6514651));
+        setPreferredSize(new java.awt.Dimension(721, 450));
         getContentPane().setLayout(null);
 
         tfIdade.setForeground(new java.awt.Color(255, 130, 5));
@@ -108,7 +109,7 @@ public class TelaPessoa extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnSalvar);
-        btnSalvar.setBounds(490, 356, 120, 40);
+        btnSalvar.setBounds(480, 360, 120, 40);
 
         tfAltura.setForeground(new java.awt.Color(255, 130, 5));
         tfAltura.setDisabledTextColor(new java.awt.Color(255, 255, 255));

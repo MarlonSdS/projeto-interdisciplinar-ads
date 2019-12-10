@@ -9,7 +9,7 @@ package ads.pi.telas;
 import javax.swing.JOptionPane;
 import ads.pi.usuario.Usuario;
 import ads.pi.usuario.UsuarioDAO;
-import ads.pi.usuario.UsuarioTableModel;
+
 
 /**
  *
@@ -87,7 +87,7 @@ public class TelaCadastro extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnFechar);
-        btnFechar.setBounds(570, 360, 100, 23);
+        btnFechar.setBounds(570, 360, 100, 26);
 
         btnVoltar.setBackground(new java.awt.Color(255, 102, 51));
         btnVoltar.setForeground(new java.awt.Color(255, 255, 255));
@@ -98,7 +98,7 @@ public class TelaCadastro extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnVoltar);
-        btnVoltar.setBounds(460, 360, 90, 23);
+        btnVoltar.setBounds(460, 360, 90, 26);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ads/pi/artefatos/tela_cadastro_login.png"))); // NOI18N
         getContentPane().add(jLabel1);

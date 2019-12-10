@@ -37,9 +37,7 @@ public class TelaLogin extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         tfUsuario = new javax.swing.JTextField();
         tfSenha = new javax.swing.JPasswordField();
-        cbLembre = new javax.swing.JCheckBox();
         entrar = new javax.swing.JToggleButton();
-        jButton2 = new javax.swing.JButton();
         jToggleButton2 = new javax.swing.JToggleButton();
         jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -81,19 +79,6 @@ public class TelaLogin extends javax.swing.JFrame {
         getContentPane().add(tfSenha);
         tfSenha.setBounds(500, 220, 180, 40);
 
-        cbLembre.setBackground(new java.awt.Color(255, 255, 255));
-        cbLembre.setForeground(new java.awt.Color(255, 130, 5));
-        cbLembre.setText("Lembre - me");
-        cbLembre.setHideActionText(true);
-        cbLembre.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        cbLembre.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbLembreActionPerformed(evt);
-            }
-        });
-        getContentPane().add(cbLembre);
-        cbLembre.setBounds(440, 280, 110, 23);
-
         entrar.setBackground(new java.awt.Color(255, 130, 5));
         entrar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         entrar.setForeground(new java.awt.Color(255, 255, 255));
@@ -104,14 +89,7 @@ public class TelaLogin extends javax.swing.JFrame {
             }
         });
         getContentPane().add(entrar);
-        entrar.setBounds(570, 280, 81, 23);
-
-        jButton2.setBackground(new java.awt.Color(255, 130, 5));
-        jButton2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("ESQUECEU SEU LOGIN OU SENHA?");
-        getContentPane().add(jButton2);
-        jButton2.setBounds(420, 90, 240, 23);
+        entrar.setBounds(510, 280, 83, 25);
 
         jToggleButton2.setBackground(new java.awt.Color(255, 130, 5));
         jToggleButton2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -123,7 +101,7 @@ public class TelaLogin extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jToggleButton2);
-        jToggleButton2.setBounds(450, 360, 127, 23);
+        jToggleButton2.setBounds(450, 360, 128, 25);
 
         jButton1.setBackground(new java.awt.Color(255, 130, 5));
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -135,7 +113,7 @@ public class TelaLogin extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(590, 360, 75, 23);
+        jButton1.setBounds(590, 360, 77, 24);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ads/pi/artefatos/tela_login.png"))); // NOI18N
         jLabel1.setText("jLabel1");
@@ -176,10 +154,6 @@ public class TelaLogin extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jToggleButton2ActionPerformed
     public boolean lembre = false;
-    private void cbLembreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbLembreActionPerformed
-        lembre = true;
-    }//GEN-LAST:event_cbLembreActionPerformed
-
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -228,10 +202,8 @@ public class TelaLogin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JCheckBox cbLembre;
     private javax.swing.JToggleButton entrar;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
